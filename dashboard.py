@@ -7,8 +7,15 @@ import numpy as np
 st.set_page_config(page_title='RetailIQ', page_icon=":bar_chart", layout="wide")
 
 st.title(':bar_chart: RetailIQ')
-st.markdown('<style>div.block-container{padding-top: 1rem;}</style>', unsafe_allow_html=True)
+st.markdown("""
+### Welcome to RetailIQ! 🛍️
 
+Unlock insights from your retail data with our interactive dashboard. 
+Upload your sales data, apply filters, and visualize key metrics through engaging charts and tables. 
+Analyze category performance, regional sales, and profit trends to drive informed business decisions. 
+Let’s dive into your data!
+""")
+st.markdown('<style>div.block-container{padding-top: 1rem;}</style>', unsafe_allow_html=True)
 file = st.file_uploader(":file_folder: Upload your file", type=['csv'])
 if file is not None:
     file_name = file.name
