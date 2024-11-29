@@ -3,10 +3,14 @@ import plotly.express as px
 import streamlit as st
 import numpy as np
 
+import streamlit as st
 
-st.set_page_config(page_title='RetailIQ', page_icon=":bar_chart", layout="wide")
+# Set the page configuration
 
-st.title(':bar_chart: RetailIQ')
+st.set_page_config(page_title='RetailIQ ', page_icon=":bar_chart", layout="wide")
+# Display the title
+st.markdown('<h1 style="font-size: 3rem;">RetailIQ: Retail Data Analysis Dashboard</h1>', unsafe_allow_html=True)
+
 st.markdown("""
 ### Welcome to RetailIQ! 🛍️
 
@@ -29,9 +33,9 @@ if file is not None:
     st.success(f"File saved successfully: {file_name}")
 
     # Read the uploaded file into a DataFrame
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(file_name).sample(1000)
 else:
-    df = pd.read_excel('Superstore.xls')
+    df = pd.read_excel('Superstore.xls').sample(1000)
 
 col1, col2 = st.columns((2))
 df['Order Date'] = pd.to_datetime(df['Order Date'])
